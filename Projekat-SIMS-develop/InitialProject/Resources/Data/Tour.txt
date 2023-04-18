@@ -1,0 +1,3 @@
+12|tura|novi sad|srbija|opis|srpski|5|2,ch,End,True|1/1/2023 12:12:00 PM|4||Finished
+2|tura2|beograd|srbija|tura po bg|engleski|3|2,kalemegdan,Start,False|5/12/2023 12:00:00 PM|7|slika, slicica|NotStarted
+3|turaaa|kragujevac|srbija|turica po gk |srpski|6|2,chk,Start,False|6/12/2023 12:00:00 PM|8|slicice, slicice|NotStarted

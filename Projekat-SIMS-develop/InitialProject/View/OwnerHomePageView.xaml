@@ -1,0 +1,308 @@
+﻿<Window x:Class="InitialProject.View.OwnerHomePageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="OwnerHomePageView" Height="794" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        KeyDown="ChangeViews_KeyDown"
+        >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="20" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="Blue"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="480*"/>
+            <ColumnDefinition Width="213*"/>
+            <ColumnDefinition Width="107*"/>
+        </Grid.ColumnDefinitions>
+        <Line Stroke="Black" StrokeThickness="2" Stretch="Uniform" X1="1" Y1="1" X2="1" Y2="0"  Margin="-213,-10,55,0" Grid.ColumnSpan="3"/>
+
+        <Grid HorizontalAlignment="Left" Width="250">
+            <StackPanel>
+                <Grid Height="110" Background="White">
+                    <TextBlock FontSize="40" Height="60">Owner's Page</TextBlock>
+                </Grid>
+
+                <Border BorderBrush="AliceBlue" Height="52">
+                    <StackPanel Orientation="Horizontal" Margin="0,2">
+                        <Image  Margin="2,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\axe.png" Height="40"/>
+                        <TextBlock Text="Create Accommodation" VerticalAlignment="Center" Margin="15 5 0 10"/>
+                    </StackPanel>
+                </Border>
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Image  Margin="2,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\arrow-up.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Grade Guests" VerticalAlignment="Center" Margin="15 10 0 0"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,15,0,0">
+                    <Image  Margin="2,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\star.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Show Statistic" VerticalAlignment="Center" Margin="15 0 0 10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,15,0,0">
+                    <Image  Margin="2,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\star.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Show Suggestions" VerticalAlignment="Center" Margin="15 0 0 10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,20,0,0">
+                    <Image  Margin="2,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\star.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Show Reviews" VerticalAlignment="Center" Margin="15 0 0 10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,15,0,0">
+                    <Image  Margin="3,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\briefcase.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Manage Reservations" VerticalAlignment="Center" Margin="15 0 0 10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,15,0,0">
+                    <Image Margin="3,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\briefcaseblack.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Schedule Renovations" VerticalAlignment="Center" Margin="15 0 0 10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,20,0,0">
+                    <Image Margin="3,0,0,10" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\star.png" Height="40"/>
+                    <TextBlock Text="Show/Delete Renovations" VerticalAlignment="Center" Margin="15 0 0 10"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,15,0,0">
+                    <Image  Margin="2,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\comment.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Leave Comment" VerticalAlignment="Center" Margin="15 0 0 10"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,15,0,0">
+                    <Image  Margin="2,0,0,0" Source="C:\Users\djox1\Desktop\6.semestar\ModeliranjeSoftvera\ProjectSIMS\ProjectSIMS\InitialProject\InitialProject\Resources\Icons\exclamationmark.png" Height="40" VerticalAlignment="Center"></Image>
+                    <TextBlock Text="Report Spam" VerticalAlignment="Center" Margin="15 0 0 10"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock FontSize="40" Margin="413,60,-389,687" TextAlignment="Center">Shortcuts</TextBlock>
+            <Grid Margin="309,51,-503,90">
+
+
+                <Border BorderBrush="black" BorderThickness="2" CornerRadius="20" Margin="-18,56,-23,-73">
+
+                </Border>
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="40,75,344,518">F1</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="88,73,201,520" TextWrapping="Wrap">Create Accommodation</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="40,160,344,433">F2</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="88,160,248,433" TextWrapping="Wrap">Grade Guests</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="40,252,344,341">F3</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="88,252,248,341" TextWrapping="Wrap">Show Reviews</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="40,347,344,246">F4</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="88,347,201,246" TextWrapping="Wrap">Manage Reservations</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="40,431,344,162">F5</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="88,429,222,164" TextWrapping="Wrap">Leave Comment</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="24" Margin="40,527,344,66">ESC</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="90,522,199,71" TextWrapping="Wrap">Exit/Go back</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="32,616,352,-23">F12</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="89,610,242,-17" TextWrapping="Wrap"> Download PDF</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="286,78,98,515">F6</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="338,73,-7,520" TextWrapping="Wrap">Show Statistic</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="288,166,96,427">F7</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="336,159,-5,434" TextWrapping="Wrap">Show Suggestions</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="288,252,96,341">F8</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="338,252,-7,341" TextWrapping="Wrap">Show Renovations</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="290,349,94,244">F9</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="333,344,-2,249" TextWrapping="Wrap">Show/Delete Renovations</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="282,438,102,155">F10</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="336,432,-5,161" TextWrapping="Wrap">Report Spam</TextBlock>
+
+                <TextBlock Width="60" Height="60" FontSize="30" Margin="284,526,100,67">F11</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="338,519,-7,74" TextWrapping="Wrap">Minimize Screen</TextBlock>
+
+                <TextBlock FontSize="22" Margin="272,604,92,-35" TextWrapping="Wrap">  Alt+Shift</TextBlock>
+                <TextBlock Height="60" FontSize="20" Margin="336,608,-5,-15" TextWrapping="Wrap">Change Language</TextBlock>
+
+
+                <Rectangle Stroke="Black" Margin="26,70,361,522" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="26,159,361,433" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="26,249,361,341" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="26,344,361,246" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="26,429,361,163" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="28,517,359,73" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="26,608,361,-17" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="273,74,114,518" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="273,159,114,433" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="273,249,114,341" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="273,344,114,246" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="273,431,114,161" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="273,519,114,71" RenderTransformOrigin="0.442,1.208" />
+                <Rectangle Stroke="Black" Margin="273,608,114,-17" RenderTransformOrigin="0.442,1.208" />
+            </Grid>
+        </Grid>
+
+
+        <Button x:Name="CreateAccommodationPage" Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="1,115,239,626" Background="Transparent" Click="CreateAccommodationPage_Click"></Button>
+        <Button x:Name="GradeGuestPage" Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="1,173,239,568" Background="Transparent" Click="GradeGuestPage_Click"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="0,231,240,510" Background="Transparent"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="0,287,240,454" Background="Transparent"></Button>
+        <Button x:Name="ShowReviewsPage" Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="0,345,240,396" Background="Transparent" Click="ShowReviewsPage_Click"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="0,403,240,338" Background="Transparent"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="0,459,240,282" Background="Transparent"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="0,517,240,224" Background="Transparent"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="1,575,239,166" Background="Transparent"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Width="240" Height="53" Margin="1,633,239,108" Background="Transparent"></Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Margin="292,738,58,20" Background="Transparent"/>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Margin="166,738,24,20" Background="Transparent" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Margin="292,66,58,692" Background="Transparent"/>
+        <Button Style="{DynamicResource RoundedButtonStyle}" Margin="164,66,26,692" Background="#ff64ccf1" Foreground="White" FontFamily="Arial" Grid.ColumnSpan="2" Grid.Column="1" Click="Button_Logout"/>
+
+        <TextBlock Width="50" Height="50" FontSize="25" Margin="331,736,99,8">PDF</TextBlock>
+        <TextBlock Height="50" FontSize="25" Margin="188,737,30,7" Grid.ColumnSpan="2" Grid.Column="1"><Run Text="EN/SRB"/></TextBlock>
+        <TextBlock FontSize="25" Margin="302,66,60,694"><Run Text="Light/Dark"/></TextBlock>
+        <TextBlock Height="50"  Foreground="White" FontFamily="Arial" FontSize="25" Margin="188,68,30,676" Grid.ColumnSpan="2" Grid.Column="1"><Run Text="Logout"/></TextBlock>
+
+
+        <Button x:Name="btnClose"
+                    Background="#da34ae"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="12"
+                    Cursor="Hand"
+                    Click="btnClose_Click" Margin="77,-4,-5,771" RenderTransformOrigin="-1.045,0.307" Grid.Column="2">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#28aeed">
+
+
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#c62dae"></Setter>
+                        </Trigger>
+
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="18" Height="18"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"></ContentPresenter>
+
+                    </Border>
+                </ControlTemplate>
+
+            </Button.Template>
+
+        </Button>
+
+        <Button x:Name="btnMinimize"
+                    BorderThickness="0"
+                    Content="-"
+                    FontSize="16"
+                    Cursor="Hand"
+                    Foreground="White"
+                    Grid.Column="2"
+                    Height="22"
+                    Click="btnMinimize_Click" Margin="49,0,30,773" VerticalAlignment="Bottom"
+                    >
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#28aeed">
+
+
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#278bef"></Setter>
+                        </Trigger>
+
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="18" Height="18"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"></ContentPresenter>
+
+                    </Border>
+                </ControlTemplate>
+
+            </Button.Template>
+
+
+        </Button>
+
+    </Grid>
+</Window>

@@ -1,0 +1,5 @@
+Djordje|djole123|1|Owner
+Sara|sara123|2|Guest
+Sonja|sonja123|3|Tourist
+Marko|marko123|4|Guide
+Djordje2|djole1234|5|Owner

@@ -1,0 +1,331 @@
+﻿<Window x:Class="InitialProject.View.Commands.Owner.CreateAccommodationForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View.Commands.Owner"
+        mc:Ignorable="d"
+        Title="CreateAccommodationForm" Height="650" Width="900"
+         WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background1" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
+        <Style x:Key="RoundedButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border1}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border CornerRadius="5">
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition  Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="101*"></ColumnDefinition>
+                <ColumnDefinition Width="49*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnMinimize"
+                    BorderThickness="0"
+                    Content="-"
+                    FontSize="16"
+                    Cursor="Hand"
+                    Foreground="White"
+                    Grid.Column="2"
+                    Width="20"
+                    Height="20"
+                    Click="btnMinimize_Click" Margin="94,0,26,109" VerticalAlignment="Bottom" Grid.ColumnSpan="2"
+                    >
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#28aeed">
+
+
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#278bef"></Setter>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="18" Height="18"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"></ContentPresenter>
+
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+
+            </Button>
+
+            <Button x:Name="btnClose"
+                    Background="#da34ae"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="12"
+                    Cursor="Hand"
+                    Grid.Column="3"
+                    Height="20"
+                    Width="20"
+                    Click="btnClose_Click" Margin="29,1,0,109">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#28aeed">
+
+
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#c62dae"></Setter>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="18" Height="18"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"></ContentPresenter>
+
+                        </Border>
+                    </ControlTemplate>
+
+                </Button.Template>
+
+            </Button>
+            <Button Style="{DynamicResource RoundedButtonStyle2}" x:Name="HomeButton" Content="Go Back" Click="HomeButton_Click" Grid.Column="0" Grid.Row="0" Width="90" Height="50"  Background="#ff64ccf1" Foreground="White" FontFamily="Arial" FontSize="20" Margin="8,4,284,76" >
+
+            </Button>
+            <TextBlock Margin="265,-10,115,10" TextAlignment="Center" Grid.ColumnSpan="2" FontSize="35">Create Accommodation</TextBlock>
+
+            <TextBlock Grid.Row="1" Text="Enter Name:" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBox x:Name="Name" Grid.Column="0" Grid.Row="1" Height="40" Margin="10,62,10,28"  FontSize="20"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             Background="AliceBlue"
+                             BorderThickness="1"></TextBox>
+
+
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="Enter Location City:" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="LocationCity" Grid.Column="1" Grid.Row="1" Height="40" Margin="10,62,101,28"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             FontSize="20"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             Background="AliceBlue"
+                             BorderThickness="1" Grid.ColumnSpan="2"></TextBox>
+
+
+            <TextBlock Grid.Row="2" Text="Enter Location Contry:" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBox x:Name="LocationCoutry" Grid.Column="0" Grid.Row="2" Height="40" Margin="10,62,10,28"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             Background="AliceBlue"
+                             BorderThickness="1"
+                             FontSize="20"></TextBox>
+
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="Enter Type(1-Apartmant, 2-House, 3-Hut):" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="Type" Grid.Column="1" Grid.Row="2" Height="40" Margin="10,62,10,28"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             FontSize="20"
+                             Background="AliceBlue"
+                             BorderThickness="1"></TextBox>
+
+
+            <TextBlock Grid.Row="3" Text="Enter Max Guest Number:" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBox x:Name="MaxGuests" Grid.Column="0" Grid.Row="3" Height="40" Margin="10,62,10,28"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             FontSize="20"
+                             Background="AliceBlue"
+                             BorderThickness="1"></TextBox>
+
+
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="Enter Min Days For Reservation:" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="MinDaysForReservation" Grid.Column="1" Grid.Row="3" Height="40" Margin="10,62,10,28"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             FontSize="20"
+                             Background="AliceBlue"
+                             BorderThickness="1"></TextBox>
+
+            <TextBlock Grid.Row="4" Text="Enter Days Before Canceling Reservation:" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBox  x:Name="DaysBeforeCancelingReservation" Grid.Column="0" Grid.Row="4" Height="40" Margin="10,62,10,28"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             Background="AliceBlue"
+                             FontSize="20"
+                             BorderThickness="1"></TextBox>
+
+
+            <TextBlock Grid.Column="1" Grid.Row="4" Text="Enter Pictures:" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="Pictures" Grid.Column="1" Grid.Row="4" Height="40" Margin="10,62,10,28"
+                             FontWeight="Bold"
+                             FontFamily="Montserrat"                            
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="Black"
+                             FontSize="20"
+                             Background="AliceBlue"
+                             BorderThickness="1"></TextBox>
+
+
+            <Button Style="{DynamicResource RoundedButtonStyle}"  x:Name="CreateAcc"  Grid.Column="2" Grid.Row="4" Width="100" Height="60" Content="Create" Click="CreateAcc_Click" Background="#ff64ccf1" Foreground="White" FontFamily="Arial" FontSize="20" Margin="32,52,8,18" Grid.ColumnSpan="2"></Button>
+
+
+        </Grid>
+
+    </Border>
+</Window>
